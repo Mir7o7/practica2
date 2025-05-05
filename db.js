@@ -1,6 +1,11 @@
 const { Pool } = require('pg');
+require('dotenv').config();
+
 const pool = new Pool({
-  connectionString: process.env.postgresql://dbpractica2_user:MPvHcGRV9nVZz1cBflPlZ9vACe86aApy@dpg-d0cgu06mcj7s738f5310-a.oregon-postgres.render.com/dbpractica2,
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
 module.exports = pool;
